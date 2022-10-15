@@ -15,7 +15,15 @@ WriteLine("Строки: ");
 int a = int.Parse(ReadLine()!);
 WriteLine("Столбцы: ");
 int b = int.Parse(ReadLine()!);
+if (a == b)
+{
+    WriteLine("Необходиимо задать прямоуольную матрицу!");
+    WriteLine();
+    return;
+}
+
 int[,] arr = CreateArray(a, b);
+
 WriteLine();
 PrintArray(arr);
 WriteLine();
@@ -51,7 +59,7 @@ void RowSmallSum(int[,] array)
 {
     int index = 1;
     int min = 0;
-    
+
     for (int i = 0; i < array.GetLength(1); i++)
     {
         min += array[0, i];
@@ -62,11 +70,11 @@ void RowSmallSum(int[,] array)
         for (int j = 0; j < array.GetLength(1); j++)
         {
             sum += array[i, j];
-        } 
-        if(sum < min)
+        }
+        if (sum < min)
         {
-        min = sum;
-        index = i + 1;
+            min = sum;
+            index = i + 1;
         }
     }
     Write($"Номер строки с наименьшей суммой элементов: {index}");
